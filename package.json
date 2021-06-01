@@ -17,7 +17,8 @@
     "url": "git+https://github.com/sovlookup/node-manager.git"
   },
   "keywords": [
-    "nodejs"
+    "nodejs",
+    "pm2"
   ],
   "author": "sovlookup",
   "license": "MIT",
