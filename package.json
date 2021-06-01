@@ -1,0 +1,39 @@
+{
+  "name": "node-manager",
+  "version": "0.0.1",
+  "description": "manage your node applications",
+  "main": "src/index.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "postinstall": "husky install && npx husky add .husky/pre-commit 'npm run format && npm test'",
+    "build": "node scripts/build.js",
+    "prebuild": "rimraf dist build && esbuild --bundle --minify --platform=node --format=esm --splitting src/index.ts --outdir=dist/src",
+    "test": "jest",
+    "format": "pretty-quick --staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sovlookup/node-manager.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "sovlookup",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sovlookup/node-manager/issues"
+  },
+  "homepage": "https://github.com/sovlookup/node-manager#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.6.1",
+    "caxa": "^1.0.0",
+    "esbuild": "^0.12.5",
+    "husky": "^6.0.0",
+    "jest": "^27.0.3",
+    "prettier": "^2.3.0",
+    "pretty-quick": "^3.1.0",
+    "rimraf": "^3.0.2"
+  }
+}
