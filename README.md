@@ -1,5 +1,7 @@
 # Node-Manager
 
+open tiny friendly
+
 基于 svelte + midway/hooks + pm2 的Node应用管理器
 
 1. [ ] pm2接口化管理
