@@ -16,3 +16,4 @@ open tiny friendly
 
 1. 对等网络化
 2. Web3门户
+3. 去中心分布式弹性系统
