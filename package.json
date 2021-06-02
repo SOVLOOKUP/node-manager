@@ -6,7 +6,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "postinstall": "husky install && npx husky add .husky/pre-commit 'npm run format && npm test'",
+    "postinstall": "husky install && npx husky set .husky/pre-commit 'npm run format && npm test'",
     "build": "node scripts/build.js",
     "prebuild": "rimraf dist build && esbuild --bundle --minify --platform=node --format=esm --splitting src/index.ts --outdir=dist/src",
     "test": "jest",
