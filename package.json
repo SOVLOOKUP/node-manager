@@ -16,7 +16,8 @@
     "postinstall": "husky install && npx husky set .husky/pre-commit 'npm test'",
     "prepare": "npm run build",
     "pretest": "npm run build",
-    "posttest": "npm run fix"
+    "posttest": "npm run fix",
+    "winos":"pinst --disble"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
   },
   "homepage": "https://github.com/sovlookup/node-manager#readme",
   "devDependencies": {
+    "pinst": "^2.1.6",
     "@midwayjs/cli": "^1.2.70",
     "@midwayjs/egg-ts-helper": "^1.2.0",
     "@midwayjs/luckyeye": "^1.0.2",
