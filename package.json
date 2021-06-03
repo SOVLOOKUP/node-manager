@@ -2,15 +2,22 @@
   "name": "node-manager",
   "version": "0.0.1",
   "description": "manage your node applications",
-  "main": "src/index.js",
-  "type": "module",
   "private": true,
   "scripts": {
-    "postinstall": "husky install && npx husky set .husky/pre-commit 'npm run format && npm test'",
-    "build": "node scripts/build.js",
-    "prebuild": "rimraf dist build && esbuild --bundle --minify --platform=node --format=esm --splitting src/index.ts --outdir=dist/src",
-    "test": "jest",
-    "format": "pretty-quick --staged"
+    "dev": "cross-env ets && cross-env NODE_ENV=local midway-bin dev --ts",
+    "build": "tsup-node src/* -d dist/dist/ --minify --minify-whitespace --minify-identifiers --minify-syntax --target=esnext --clean",
+    "postbuild": "tsup-node index.ts -d dist/ --minify --minify-whitespace --minify-identifiers --minify-syntax --target=esnext --clean",
+    "cov": "midway-bin cov --ts",
+    "lint": "mwts lint",
+    "ci": "npm run cov",
+    "check": "luckyeye",
+    "clean": "mwts clean",
+    "fix": "mwts fix",
+    "test": "midway-bin test --ts",
+    "postinstall": "husky install && npx husky set .husky/pre-commit 'npm test'",
+    "prepare": "npm run build",
+    "pretest": "npm run build",
+    "posttest": "npm run fix"
   },
   "repository": {
     "type": "git",
@@ -20,6 +27,15 @@
     "nodejs",
     "pm2"
   ],
+  "midway-bin-clean": [
+    ".vscode/.tsbuildinfo",
+    "dist"
+  ],
+  "midway-luckyeye": {
+    "packages": [
+      "midway_v2"
+    ]
+  },
   "author": "sovlookup",
   "license": "MIT",
   "bugs": {
@@ -27,14 +43,27 @@
   },
   "homepage": "https://github.com/sovlookup/node-manager#readme",
   "devDependencies": {
+    "@midwayjs/cli": "^1.2.70",
+    "@midwayjs/egg-ts-helper": "^1.2.0",
+    "@midwayjs/luckyeye": "^1.0.2",
     "@types/jest": "^26.0.23",
-    "@types/node": "^15.6.1",
-    "caxa": "^1.0.0",
-    "esbuild": "^0.12.5",
+    "@types/node": "^15.9.0",
+    "caxa": "^2.0.0",
+    "cross-env": "^7.0.3",
     "husky": "^6.0.0",
     "jest": "^27.0.3",
-    "prettier": "^2.3.0",
-    "pretty-quick": "^3.1.0",
-    "rimraf": "^3.0.2"
+    "mwts": "^1.2.2",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.2",
+    "tsup": "^4.11.2",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "@midwayjs/bootstrap": "^2.10.18",
+    "@midwayjs/mock": "^2.10.18",
+    "@midwayjs/core": "^2.10.18",
+    "@midwayjs/web": "^2.10.19",
+    "@midwayjs/decorator": "^2.10.18",
+    "egg": "^2.29.4"
   }
 }
