@@ -1,5 +1,5 @@
 {
-  "compileOnSave": true,
+  // "compileOnSave": true,
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -17,7 +17,8 @@
     "typeRoots": [
       "./typings",
       "./node_modules/@types"
-    ]
+    ],
+    "outDir": "build"
   },
   "exclude": [
     "dist",

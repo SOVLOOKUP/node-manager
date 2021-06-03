@@ -6,7 +6,7 @@
     "dev": "cross-env ets && cross-env NODE_ENV=local midway-bin dev --ts",
     "build": "tsup-node src/* -d build/dist/ --minify --minify-whitespace --minify-identifiers --minify-syntax --target=esnext --clean",
     "postbuild": "tsup-node index.ts -d build/ --minify --minify-whitespace --minify-identifiers --minify-syntax --target=esnext && cp package.json build/",
-    "publish": "echo 进入build目录搜索依赖并install 输出到publish目录并且用caxa打包",
+    "publish": "node scripts/publish.js",
     "cov": "midway-bin cov --ts",
     "lint": "mwts lint",
     "ci": "npm run cov",
@@ -17,9 +17,7 @@
     "postinstall": "husky install && npx husky set .husky/pre-commit 'npm test'",
     "prepare": "npm run build",
     "pretest": "npm run build",
-    "posttest": "npm run fix",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable"
+    "posttest": "npm run fix"
   },
   "repository": {
     "type": "git",
@@ -50,12 +48,12 @@
     "@midwayjs/luckyeye": "^1.0.2",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.9.0",
-    "caxa": "^2.0.0",
+    "caxa": "1.0.0",
     "cross-env": "^7.0.3",
+    "detective": "^5.2.0",
     "husky": "^6.0.0",
     "jest": "^27.0.3",
     "mwts": "^1.2.2",
-    "pinst": "^2.1.6",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.2",
     "tsup": "^4.11.2",
@@ -63,10 +61,10 @@
   },
   "dependencies": {
     "@midwayjs/bootstrap": "^2.10.18",
-    "@midwayjs/mock": "^2.10.18",
     "@midwayjs/core": "^2.10.18",
-    "@midwayjs/web": "^2.10.19",
     "@midwayjs/decorator": "^2.10.18",
+    "@midwayjs/mock": "^2.10.18",
+    "@midwayjs/web": "^2.10.19",
     "egg": "^2.29.4"
   }
 }
