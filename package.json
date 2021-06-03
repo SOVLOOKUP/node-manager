@@ -9,7 +9,7 @@
     "publish": "node scripts/publish.js",
     "cov": "midway-bin cov --ts",
     "lint": "mwts lint",
-    "ci": "npm run cov",
+    "ci": "npm run dev && npm run cov",
     "check": "luckyeye",
     "clean": "mwts clean",
     "fix": "mwts fix",
