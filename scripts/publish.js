@@ -113,7 +113,7 @@ const requireDependsResovler = (path, attach = {}) =>
             suffix = '.exe';
           }
 
-          const pathcmd = process.platform === 'win32' ? 'set' : 'env';
+          // const pathcmd = process.platform === 'win32' ? 'set' : 'env';
           const outDir = 'publish';
           //   console.log(fs.existsSync(resolve(currentDir, 'build')));
 
