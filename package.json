@@ -13,11 +13,11 @@
     "clean": "mwts clean",
     "fix": "mwts fix",
     "test": "midway-bin test --ts",
-    "postinstall": "husky install && npx husky set .husky/pre-commit 'npm test'",
+    "postinstall": "husky install && husky set .husky/pre-commit 'npm test'",
     "prepare": "npm run build",
     "pretest": "npm run build",
     "posttest": "npm run fix",
-    "pinstdis":"pinst --disable"
+    "pinstdis":"npx pinst --disable"
   },
   "repository": {
     "type": "git",
@@ -43,7 +43,6 @@
   },
   "homepage": "https://github.com/sovlookup/node-manager#readme",
   "devDependencies": {
-    "pinst": "^2.1.6",
     "@midwayjs/cli": "^1.2.70",
     "@midwayjs/egg-ts-helper": "^1.2.0",
     "@midwayjs/luckyeye": "^1.0.2",
