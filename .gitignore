@@ -2,6 +2,7 @@ build
 .husky
 typings
 logs/
+publish/
 npm-debug.log
 yarn-error.log
 node_modules/

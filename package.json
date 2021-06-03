@@ -2,11 +2,11 @@
   "name": "node-manager",
   "version": "0.0.1",
   "description": "manage your node applications",
-  "private": true,
   "scripts": {
     "dev": "cross-env ets && cross-env NODE_ENV=local midway-bin dev --ts",
-    "build": "tsup-node src/* -d dist/dist/ --minify --minify-whitespace --minify-identifiers --minify-syntax --target=esnext --clean",
-    "postbuild": "tsup-node index.ts -d dist/ --minify --minify-whitespace --minify-identifiers --minify-syntax --target=esnext --clean",
+    "build": "tsup-node src/* -d build/dist/ --minify --minify-whitespace --minify-identifiers --minify-syntax --target=esnext --clean",
+    "postbuild": "tsup-node index.ts -d build/ --minify --minify-whitespace --minify-identifiers --minify-syntax --target=esnext && cp package.json build/",
+    "publish": "echo 进入build目录搜索依赖并install 输出到publish目录并且用caxa打包",
     "cov": "midway-bin cov --ts",
     "lint": "mwts lint",
     "ci": "npm run cov",
@@ -17,7 +17,9 @@
     "postinstall": "husky install && npx husky set .husky/pre-commit 'npm test'",
     "prepare": "npm run build",
     "pretest": "npm run build",
-    "posttest": "npm run fix"
+    "posttest": "npm run fix",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "repository": {
     "type": "git",
@@ -53,6 +55,7 @@
     "husky": "^6.0.0",
     "jest": "^27.0.3",
     "mwts": "^1.2.2",
+    "pinst": "^2.1.6",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.2",
     "tsup": "^4.11.2",
