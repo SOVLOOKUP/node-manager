@@ -22,7 +22,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - uses: bahmutov/npm-install@v1
-      - run: yarn cov
-      - run: yarn build
+      - run: npm install
+      - run: npm run test
+      - run: npm run cov
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
