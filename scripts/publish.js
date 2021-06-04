@@ -108,7 +108,7 @@ const requireDependsResovler = (path, attach = {}) =>
 
           let suffix = '';
           if (process.platform === 'darwin') {
-            suffix = '.app';
+            suffix = '';
           } else if (process.platform === 'win32') {
             suffix = '.exe';
           }
@@ -116,6 +116,7 @@ const requireDependsResovler = (path, attach = {}) =>
           // const pathcmd = process.platform === 'win32' ? 'set' : 'env';
           const outDir = 'publish';
           //   console.log(fs.existsSync(resolve(currentDir, 'build')));
+          let output = resolve(currentDir, outDir, 'app' + suffix)
 
           caxa
             .default({
@@ -127,13 +128,14 @@ const requireDependsResovler = (path, attach = {}) =>
                 '{{caxa}}/index.js',
                 '{{caxa}}',
               ],
-              output: resolve(currentDir, outDir, 'app' + suffix),
+              output: output,
             })
-            .then(() =>
-              console.log(
-                `Build output to ${resolve(currentDir, outDir, 'app' + suffix)}`
-              )
-            );
+            .then(() => {
+              if (process.platform === 'darwin') {
+                fs.rename(output, output + '.app')
+                console.log(`Dist output to ${output + '.app'}`)
+              } else console.log(`Dist output to ${output}`)
+            });
         });
       });
     })
