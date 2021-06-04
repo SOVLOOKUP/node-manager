@@ -29,14 +29,14 @@ jobs:
        uses: actions/setup-node@v2
        with:
          node-version: ${{ matrix.node-version }}
+     - run: npx pinst --disable
      - name: Cache
        uses: actions/cache@v2.1.6
        with:
          path: node_modules
-     - run: npx pinst --disable
-     - run: yarn install --frozen-lockfile
+         key: yarn install --frozen-lockfile
      - run: yarn test
      - name: Upload coverage to Codecov
        uses: codecov/codecov-action@v1
-#      - run: npx codecov
+    # - run: npx codecov
      - run: yarn run publish
