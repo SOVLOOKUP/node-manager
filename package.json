@@ -7,7 +7,6 @@
     "build": "tsup-node src/**/* -d build/dist/ --minify --minify-whitespace --minify-identifiers --minify-syntax --target=esnext --clean",
     "postbuild": "tsup-node index.ts -d build/ --minify --minify-whitespace --minify-identifiers --minify-syntax --target=esnext && cp package.json build/",
     "publish": "node scripts/publish.js",
-    "cov": "midway-bin cov --ts",
     "lint": "mwts lint",
     "check": "luckyeye",
     "clean": "mwts clean",
