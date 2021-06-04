@@ -60,5 +60,6 @@ jobs:
      - name: Archive the release
        uses: actions/upload-artifact@v2
        with:
+         name: Release
          path: 'publish/**/*'
 
