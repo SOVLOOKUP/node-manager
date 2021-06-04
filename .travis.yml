@@ -16,7 +16,6 @@ os:
 
 script:
   - npm run test
-  - npm run cov
   - codecov
   - npm run publish
 
