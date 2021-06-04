@@ -132,7 +132,7 @@ const requireDependsResovler = (path, attach = {}) =>
             })
             .then(() => {
               if (process.platform === 'darwin') {
-                fs.rename(output, output + '.app')
+                fs.renameSync(output, output + '.app')
                 console.log(`Dist output to ${output + '.app'}`)
               } else console.log(`Dist output to ${output}`)
             });
