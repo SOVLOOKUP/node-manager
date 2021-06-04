@@ -1,5 +1,13 @@
 language: node_js
 
 node_js:
-
   - 16
+
+os:
+  - linux
+  - osx
+  - windows
+
+stages:
+  - name: unit tests
+    if: branch = master
