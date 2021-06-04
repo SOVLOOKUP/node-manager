@@ -108,7 +108,7 @@ const requireDependsResovler = (path, attach = {}) =>
 
           let suffix = '';
           if (process.platform === 'darwin') {
-            suffix = '.app';
+            suffix = '';
           } else if (process.platform === 'win32') {
             suffix = '.exe';
           }
