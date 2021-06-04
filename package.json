@@ -17,7 +17,7 @@
     "posttest": "npm run fix"
   },
   "jest": {
-    "testTimeout": 200000
+    "testTimeout": 250000
   },
   "repository": {
     "type": "git",
