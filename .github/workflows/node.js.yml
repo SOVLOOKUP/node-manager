@@ -16,8 +16,8 @@ jobs:
         include:
           - node-version: 16.x
             os: ubuntu-latest
-          - node-version: 16.x
-            os: windows-latest
+#           - node-version: 16.x
+#             os: windows-latest
           - node-version: 16.x
             os: macos-latest
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
@@ -56,10 +56,13 @@ jobs:
 
      - name: Publish
        run: yarn run publish
-       
+
      - name: Archive the release
-       uses: actions/upload-artifact@v2
+       uses: actions/download-artifact@v2
+       id: download
        with:
          name: Release
          path: 'publish/**/*'
 
+     - name: 'Echo download path'
+       run: echo ${{steps.download.outputs.download-path}}
