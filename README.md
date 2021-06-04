@@ -1,4 +1,4 @@
-<center>
+<div align="center">
   <h1>Node-Manager</h1>
   <a href="https://codecov.io/gh/SOVLOOKUP/node-manager">
     <img src="https://codecov.io/gh/SOVLOOKUP/node-manager/branch/master/graph/badge.svg?token=gtYREOVInH"/>
@@ -6,7 +6,7 @@
   <a href="https://travis-ci.com/github/SOVLOOKUP/node-manager">
     <img src="https://travis-ci.com/SOVLOOKUP/node-manager.svg?branch=master&status=started"/>
   </a>
-</center>
+</div>
 
     
     
