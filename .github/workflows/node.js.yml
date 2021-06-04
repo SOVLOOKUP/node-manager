@@ -57,12 +57,12 @@ jobs:
      - name: Publish
        run: yarn run publish
 
-     - name: Archive the release
-       uses: actions/upload-artifact@v2
-       id: upload
+     - name: Release
+       uses: "marvinpinto/action-automatic-releases@latest"
        with:
-         name: Release
-         path: 'publish/**/*'
-
-     - name: 'Echo download path'
-       run: echo ${{steps.upload.outputs}}
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: Release-${{ matrix.os }}
+          files: |
+            publish/**/* 
