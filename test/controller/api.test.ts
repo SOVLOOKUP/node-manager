@@ -1,7 +1,7 @@
 import { createApp, close, createHttpRequest } from '@midwayjs/mock';
 import { Framework } from '@midwayjs/web';
 import { Application } from 'egg';
-jest.useFakeTimers();
+
 describe('test/controller/api.test.ts', () => {
   let app: Application;
 
