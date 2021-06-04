@@ -56,8 +56,10 @@ jobs:
        if: ${{ matrix.os == 'ubuntu-latest' }} 
        uses: codecov/codecov-action@v1
 
-     - name: Publish
+     - name: Build
        run: yarn build
+
+     - name: Publish
        run: yarn run publish
 
 #      - name: Release
