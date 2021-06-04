@@ -84,19 +84,19 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: macos-latest-latest.zip
-          path: release/macos-latest.zip
+          path: macos-latest.zip
 
       - name: Download Linux Release
         uses: actions/download-artifact@v2
         with:
           name: ubuntu-latest-latest.zip
-          path: release/linux-latest.zip
+          path: linux-latest.zip
 
       - name: Download Windows Release
         uses: actions/download-artifact@v2
         with:
           name: windows-latest-latest.zip
-          path: release/windows-latest.zip
+          path: windows-latest.zip
 
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -106,4 +106,4 @@ jobs:
             prerelease: true
             title: Latest-Release
             files: |
-              release/*.zip
+              *.zip
