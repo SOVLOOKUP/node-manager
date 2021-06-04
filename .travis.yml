@@ -1,14 +1,7 @@
 language: node_js
 
-dist: publish
-
 node_js:
   - 16
-
-os:
-  - linux
-  - osx
-  - windows
 
 before_install:
   - npx pinst --disable
@@ -17,10 +10,20 @@ before_install:
 jobs:
   include:
     - stage: test
+      os:
+        - linux
+        - osx
+        - windows
       script:
         - npm run test
         - npm run cov
         - codecov
+        
     - stage: publish
+      dist: publish
+      os:
+        - linux
+        - osx
+        - windows
       script:
         - npm run publish
