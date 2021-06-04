@@ -43,7 +43,7 @@ jobs:
          restore-keys: |
           ${{ runner.os }}-yarn-
       
-     - name: Generate Prime Numbers
+     - name: Generate node_modules
        if: steps.yarn-cache.outputs.cache-hit != 'true'
        run: yarn install --frozen-lockfile
        
