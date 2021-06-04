@@ -68,12 +68,13 @@ jobs:
           path: publish
 
       - name: Upload Release
-          uses: actions/upload-artifact@v2
-          with:
-            name: ${{ matrix.os }}-latest.zip
-            path: ${{ matrix.os }}-latest.zip
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.os }}-latest.zip
+          path: ${{ matrix.os }}-latest.zip
 
   release:
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Platform ${{ matrix.os }}
         uses: actions/checkout@v2
