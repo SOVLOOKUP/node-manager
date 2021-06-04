@@ -13,10 +13,6 @@ os:
 before_install:
     - npx pinst --disable
 
-install:
-    - npm run install
-    - npm install node-coveralls -g
-
 script:
     - npm run test
     - npm run cov
