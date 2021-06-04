@@ -80,10 +80,22 @@ jobs:
       - name: Platform ${{ matrix.os }}
         uses: actions/checkout@v2
 
-      - name: Download Release
+      - name: Download MacOS Release
         uses: actions/download-artifact@v2
         with:
-          name: windows-latest.zip ubuntu-latest.zip macos-latest.zip
+          name: macos-latest.zip
+          path: release
+
+      - name: Download Linux Release
+        uses: actions/download-artifact@v2
+        with:
+          name: ubuntu-latest.zip
+          path: release
+
+      - name: Download Windows Release
+        uses: actions/download-artifact@v2
+        with:
+          name: windows-latest.zip
           path: release
 
       - name: Release
