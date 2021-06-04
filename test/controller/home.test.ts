@@ -1,7 +1,6 @@
 import { createApp, close, createHttpRequest } from '@midwayjs/mock';
 import { Framework } from '@midwayjs/web';
 import { Application } from 'egg';
-import * as assert from 'assert';
 
 describe('test/controller/home.test.ts', () => {
   let app: Application;
