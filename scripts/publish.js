@@ -116,7 +116,7 @@ const requireDependsResovler = (path, attach = {}) =>
           // const pathcmd = process.platform === 'win32' ? 'set' : 'env';
           const outDir = 'publish';
           //   console.log(fs.existsSync(resolve(currentDir, 'build')));
-          let output = resolve(currentDir, outDir, 'app' + suffix)
+          const output = resolve(currentDir, outDir, 'app' + suffix);
 
           caxa
             .default({
@@ -132,9 +132,9 @@ const requireDependsResovler = (path, attach = {}) =>
             })
             .then(() => {
               if (process.platform === 'darwin') {
-                fs.renameSync(output, output + '.app')
-                console.log(`Dist output to ${output + '.app'}`)
-              } else console.log(`Dist output to ${output}`)
+                fs.renameSync(output, output + '.app');
+                console.log(`Dist output to ${output + '.app'}`);
+              } else console.log(`Dist output to ${output}`);
             });
         });
       });
