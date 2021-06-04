@@ -1,5 +1,7 @@
 language: node_js
 
+dist: publish
+
 node_js:
   - 16
 
@@ -8,6 +10,10 @@ os:
   - osx
   - windows
 
-stages:
-  - name: unit tests
-    if: branch = master
+before_install:
+    - npx pinst --disable
+
+script:
+    - npm run test
+    - npm run cov
+    - npm run publish
