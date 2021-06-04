@@ -19,3 +19,12 @@ script:
   - npm run cov
   - codecov
   - npm run publish
+
+deploy:
+  provider: releases
+  api_key: "$API_KEY"
+  file:
+  - publish/*
+  skip_cleanup: true
+  on:
+    tags: true
