@@ -30,12 +30,23 @@ jobs:
        with:
          node-version: ${{ matrix.node-version }}
      - run: npx pinst --disable
-     - name: Cache
-       uses: actions/cache@v2.1.6
+     
+     - name: Get yarn cache directory path
+       id: yarn-cache-dir-path
+       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+     - uses: actions/cache@v2
+       id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
        with:
-         path: node_modules
-         key: node_modules
-         restore-keys: yarn install --frozen-lockfile
+         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+         restore-keys: |
+          ${{ runner.os }}-yarn-
+      
+     - name: Generate Prime Numbers
+       if: steps.yarn-cache.outputs.cache-hit != 'true'
+       run: yarn install --frozen-lockfile
+       
      - run: yarn test
      - name: Upload coverage to Codecov
        uses: codecov/codecov-action@v1
