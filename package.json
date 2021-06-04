@@ -10,11 +10,14 @@
     "lint": "mwts lint",
     "check": "luckyeye",
     "fix": "mwts fix",
-    "test": "midway-bin test --ts --cov --forceExit",
+    "test": "midway-bin test --ts --cov",
     "postinstall": "husky install && husky set .husky/pre-commit 'npm test'",
     "prepare": "npm run build",
     "pretest": "npm run build",
     "posttest": "npm run fix"
+  },
+  “jest”: {
+    "testTimeout": 300000
   },
   "repository": {
     "type": "git",
