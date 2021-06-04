@@ -106,4 +106,4 @@ jobs:
             prerelease: true
             title: Latest-Release
             files: |
-              *.zip
+              windows-latest.zip
