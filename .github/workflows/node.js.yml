@@ -65,13 +65,13 @@ jobs:
         uses: vimtor/action-zip@v1
         with:
           files: publish/
-          dest: ${{ matrix.os }}-latest.zip
+          dest: ${{ matrix.os }}.zip
 
       - name: Upload Release
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ matrix.os }}-latest.zip
-          path: ${{ matrix.os }}-latest.zip
+          name: ${{ matrix.os }}.zip
+          path: ${{ matrix.os }}.zip
 
   release:
     needs: test
@@ -83,20 +83,20 @@ jobs:
       - name: Download MacOS Release
         uses: actions/download-artifact@v2
         with:
-          name: macos-latest-latest.zip
-          path: macos-latest.zip
+          name: macos-latest.zip
+          path: release
 
       - name: Download Linux Release
         uses: actions/download-artifact@v2
         with:
-          name: ubuntu-latest-latest.zip
-          path: linux-latest.zip
+          name: ubuntu-latest.zip
+          path: release
 
       - name: Download Windows Release
         uses: actions/download-artifact@v2
         with:
-          name: windows-latest-latest.zip
-          path: windows-latest.zip
+          name: windows-latest.zip
+          path: release
 
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -106,4 +106,4 @@ jobs:
             prerelease: true
             title: Latest-Release
             files: |
-              windows-latest.zip
+              release/*-latest.zip
