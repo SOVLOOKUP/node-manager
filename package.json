@@ -12,9 +12,7 @@
     "fix": "mwts fix",
     "test": "midway-bin test --ts --cov --forceExit",
     "postinstall": "husky install && husky set .husky/pre-commit 'npm test'",
-    "prepare": "npm run build",
-    "pretest": "npm run build",
-    "posttest": "npm run fix"
+    "pretest": "npm run fix"
   },
   "jest": {
     "testTimeout": 250000
