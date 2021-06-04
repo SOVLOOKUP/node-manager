@@ -58,11 +58,11 @@ jobs:
        run: yarn run publish
 
      - name: Archive the release
-       uses: actions/download-artifact@v2
-       id: download
+       uses: actions/upload-artifact@v2
+       id: upload
        with:
          name: Release
          path: 'publish/**/*'
 
      - name: 'Echo download path'
-       run: echo ${{steps.download.outputs.download-path}}
+       run: echo ${{steps.upload.outputs}}
