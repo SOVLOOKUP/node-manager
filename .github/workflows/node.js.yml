@@ -16,8 +16,8 @@ jobs:
         include:
           - node-version: 16.x
             os: ubuntu-latest
-#           - node-version: 16.x
-#             os: windows-latest
+          - node-version: 16.x
+            os: windows-latest
           - node-version: 16.x
             os: macos-latest
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
@@ -57,12 +57,12 @@ jobs:
      - name: Publish
        run: yarn run publish
 
-     - name: Release
-       uses: "marvinpinto/action-automatic-releases@latest"
-       with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: true
-          title: Release-${{ matrix.os }}
-          files: |
-            publish/**/* 
+#      - name: Release
+#        uses: "marvinpinto/action-automatic-releases@latest"
+#        with:
+#           repo_token: "${{ secrets.GITHUB_TOKEN }}"
+#           automatic_release_tag: "latest"
+#           prerelease: true
+#           title: Release-${{ matrix.os }}
+#           files: |
+#             publish/**/* 
