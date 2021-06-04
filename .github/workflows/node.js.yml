@@ -24,19 +24,19 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     steps:
-     - uses: actions/checkout@v2
-       name: Platform ${{ matrix.os }}
+     - name: Platform ${{ matrix.os }}
+       uses: actions/checkout@v2
        
      - name: Use Node.js ${{ matrix.node-version }}
        uses: actions/setup-node@v2
        with:
          node-version: ${{ matrix.node-version }}
 
-     - run: npx pinst --disable
-       name: Disable husky
-     
-     - uses: actions/cache@v2
-       name: Use node_modules cache
+     - name: Disable husky
+       run: npx pinst --disable
+       
+     - name: Use node_modules cache
+       uses: actions/cache@v2
        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
        with:
          path: node_modules
@@ -48,14 +48,14 @@ jobs:
        if: steps.yarn-cache.outputs.cache-hit != 'true'
        run: yarn install --frozen-lockfile
        
-     - run: yarn test
-       name: Test
+     - name: Test
+       run: yarn test
        
      - name: Upload coverage to Codecov
        uses: codecov/codecov-action@v1
 
-     - run: yarn run publish
-       name: Publish
+     - name: Publish
+       run: yarn run publish
        
      - name: Release
        uses: softprops/action-gh-release@v1
