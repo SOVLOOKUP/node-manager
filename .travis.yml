@@ -11,11 +11,16 @@ os:
   - windows
 
 before_install:
-    - npx pinst --disable
-    - npm install -g codecov
+  - npx pinst --disable
+  - npm install -g codecov
 
-script:
-    - npm run test
-    - npm run cov
-    - codecov
-    - npm run publish
+jobs:
+  include:
+    - stage: test
+      script:
+        - npm run test
+        - npm run cov
+        - codecov
+    - stage: publish
+      script:
+        - npm run publish
