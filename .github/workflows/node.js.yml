@@ -74,6 +74,7 @@ jobs:
           path: ${{ matrix.os }}-latest.zip
 
   release:
+    needs: test
     runs-on: ${{ matrix.os }}
     steps:
       - name: Platform ${{ matrix.os }}
