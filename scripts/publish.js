@@ -121,7 +121,7 @@ const requireDependsResovler = (path, attach = {}) =>
           console.log('Building dist...');
           caxa
             .default({
-              directory: resolve(currentDir, 'build'),
+              input: resolve(currentDir, 'build'),
               command: [
                 // pathcmd,
                 // 'NODE_OPTIONS=--experimental-loader={{caxa}}/public/https-loader.js',
