@@ -118,6 +118,7 @@ const requireDependsResovler = (path, attach = {}) =>
           //   console.log(fs.existsSync(resolve(currentDir, 'build')));
           const output = resolve(currentDir, outDir, 'app' + suffix);
 
+          console.log('Building dist...');
           caxa
             .default({
               directory: resolve(currentDir, 'build'),
