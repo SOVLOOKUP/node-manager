@@ -10,7 +10,7 @@
     "lint": "mwts lint",
     "check": "luckyeye",
     "fix": "mwts fix",
-    "test": "midway-bin test --ts --cov --forceExit",
+    "test": "midway-bin test --ts --cov",
     "postinstall": "husky install && husky set .husky/pre-commit 'npm test'",
     "pretest": "npm run fix"
   },
