@@ -46,7 +46,7 @@
     "@midwayjs/luckyeye": "^1.0.2",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.9.0",
-    "caxa": "^2.0.0",
+    "caxa": "2.0.0",
     "cross-env": "^7.0.3",
     "detective": "^5.2.0",
     "husky": "^6.0.0",
