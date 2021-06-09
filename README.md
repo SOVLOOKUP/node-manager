@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Node-Manager</h1>
+  <h1>Starry</h1>
   <a href="https://codecov.io/gh/SOVLOOKUP/node-manager">
     <img src="https://codecov.io/gh/SOVLOOKUP/node-manager/branch/master/graph/badge.svg?token=gtYREOVInH"/>
   </a>
