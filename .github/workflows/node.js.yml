@@ -70,6 +70,7 @@ jobs:
         with:
           name: ${{ matrix.os }}.zip
           path: ${{ matrix.os }}.zip
+          retention-days: 1
 
   release:
     needs: test
