@@ -106,17 +106,17 @@ const requireDependsResovler = (path, attach = {}) =>
           console.log(stdout);
           console.log(stderr);
 
-          let suffix = '';
+          let suffix = '-x86_64-unknown-linux-gnu';
           if (process.platform === 'darwin') {
-            suffix = '';
+            suffix = '-x86_64-apple-darwin';
           } else if (process.platform === 'win32') {
-            suffix = '.exe';
+            suffix = '-x86_64-pc-windows-msvc.exe';
           }
 
           // const pathcmd = process.platform === 'win32' ? 'set' : 'env';
           const outDir = 'publish';
           //   console.log(fs.existsSync(resolve(currentDir, 'build')));
-          const output = resolve(currentDir, outDir, 'app' + suffix);
+          const output = resolve(currentDir, outDir, 'starry' + suffix);
 
           console.log('Building dist...');
           caxa
@@ -132,10 +132,7 @@ const requireDependsResovler = (path, attach = {}) =>
               output: output,
             })
             .then(() => {
-              if (process.platform === 'darwin') {
-                fs.renameSync(output, output + '.app');
-                console.log(`Dist output to ${output + '.app'}`);
-              } else console.log(`Dist output to ${output}`);
+              console.log(`Dist output to ${output}`);
             });
         });
       });
