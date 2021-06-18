@@ -56,13 +56,13 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Publish
-        run: yarn run publish
+      - name: Release
+        run: yarn run release
 
       - name: Archive Release
         uses: vimtor/action-zip@v1
         with:
-          files: publish/
+          files: release/
           dest: ${{ matrix.os }}.zip
 
       - name: Upload Release

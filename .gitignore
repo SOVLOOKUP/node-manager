@@ -17,3 +17,4 @@ run/
 *.un~
 .tsbuildinfo
 .tsbuildinfo.*
+/release
