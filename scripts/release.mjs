@@ -13,10 +13,9 @@ if (process.platform === 'darwin') {
 const output = 'release/starry' + suffix;
 
 (async () => {
-  console.log('Resolve dependencies...');
   await requireResolver.default('build');
 
-  console.log('Building dist...');
+  console.log('[ caxa ] Building dist...');
   await caxa.default({
     input: 'build',
     command: [
